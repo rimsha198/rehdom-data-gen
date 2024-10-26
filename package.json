@@ -1,0 +1,16 @@
+{
+  "name": "rehdom-data-gen",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@faker-js/faker": "^9.0.3",
+    "express": "^4.21.1",
+    "path": "^0.12.7"
+  }
+}

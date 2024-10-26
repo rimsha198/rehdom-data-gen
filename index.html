@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Data Generator</title>
+
+    <style>
+        body {
+            padding: 96px;
+        }
+        div {
+            border: 1px solid green;
+            width: 100%;
+            padding: 12px 24px;
+            border-radius: 8px;
+        }
+        button {
+            background-color: greenyellow;
+            color: beige;
+            margin-bottom: 48px;
+            padding: 12px 48px;
+            border: none;
+            font-size: 18px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Data Generator</h1>
+
+    <button id="generate">Generate Data</button>
+
+    <div id="randomData"></div>
+
+    <script>
+        document.getElementById("generate").addEventListener("click", () => {
+            fetch("/random-data")
+                .then(res => res.json())
+                .then(data => { 
+                    document.getElementById("randomData").innerHTML = `
+                        <p><strong>Name:</strong> ${data.name}</p>
+                        <p><strong>E-mail:</strong> ${data.email}</p>
+                        <p><strong>Address:</strong> ${data.address}</p>
+                        <p><strong>Company:</strong> ${data.company}</p>
+                    `;
+                })
+                .catch(error => {
+                    console.log(error.message); 
+                });
+        });
+    </script>
+</body>
+</html>
